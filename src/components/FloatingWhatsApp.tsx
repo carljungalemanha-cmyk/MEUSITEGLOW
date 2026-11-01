@@ -21,7 +21,8 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ onOpenWhats 
       aria-label="Abrir conversa no WhatsApp"
     >
       <div className="wa-pulse" aria-hidden="true" />
-      <MessageCircle className="w-7 h-7 fill-[#2D2B28] text-[#2D2B28] stroke-none transition-transform duration-300 group-hover:scale-110 drop-shadow-sm" />
+      {/* Icon in pure white as requested */}
+      <MessageCircle className="w-7 h-7 fill-white text-white stroke-none transition-transform duration-300 group-hover:scale-110 drop-shadow-md" />
     </a>
   );
 };

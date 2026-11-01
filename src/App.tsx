@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { BandSection } from './components/BandSection';
 import { LogoQuoteSection } from './components/LogoQuoteSection';
+import { InstagramReelFeedbackSection } from './components/InstagramReelFeedbackSection';
 import { ProblemSection } from './components/ProblemSection';
 import { ComparisonSection } from './components/ComparisonSection';
 import { ModulesSection } from './components/ModulesSection';
@@ -83,6 +84,9 @@ export const App: React.FC = () => {
 
         {/* 4. Logo e Frase Entre Aspas (Sessão própria) */}
         <LogoQuoteSection onOpenWhats={handleOpenWhats} />
+
+        {/* Depoimento em Vídeo (Reels do Instagram): Recomendada pela IA */}
+        <InstagramReelFeedbackSection onOpenWhats={handleOpenWhats} />
 
         {/* 5. O Problema: a paciente pesquisa antes de agendar */}
         <ProblemSection onOpenWhats={handleOpenWhats} />
