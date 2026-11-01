@@ -1,0 +1,331 @@
+PRD completo: site da Glow Sites (Lana)
+Documento para o Google AI Studio construir o site. Quem desenvolve é o AI Studio: siga as decisões fechadas, a estrutura e os códigos como ponto de partida, e melhore onde puder (mais refinamento, mais fluidez, mais acabamento). Tudo em [COLCHETES] é variável.
+0. Decisões fechadas (não alterar)
+1. Paleta somente bege claro e dourado. Nenhum marrom. Texto em grafite neutro #2D2B28.
+2. Sem círculo ou anel girando em volta da foto do hero. A foto da Lana fica em arco, com moldura branca, uma moldura dourada fina deslocada e dois cartões de vidro flutuantes.
+3. Novo título e subtítulo do hero (copy fixa na sessão 9.2).
+4. Brilho viajante: uma estrela dourada que acompanha a rolagem e salta de título em título de cada sessão, até o rodapé (sessão 8, é a assinatura do site).
+5. Mobile first: no hero, a foto vem antes do texto no celular.
+6. A logo (Símbolo dourado) e a frase entre aspas têm uma sessão própria.
+7. Todo botão de ação leva ao WhatsApp (55) 71 9210-2766 com mensagem pronta. Instagram: https://www.instagram.com/glow.websites/
+8. SEO, GEO e AIO são parte do produto e devem ser implementados no próprio site (a Glow precisa provar o que vende).
+9. Pessoa-alvo: profissionais da harmonização facial. Objetivo único da página: pedir um esboço sem custo.
+1. Objetivo e público
+Negócio: captar profissionais da harmonização facial (cirurgiões-dentistas, biomédicas, enfermeiras esteticistas e outras) que querem um site de luxo. A conversão é o clique para o WhatsApp pedindo o esboço gratuito.
+Impressão: quem abrir o site deve pensar: isso é exatamente o que eu quero para a minha clínica. O próprio site é a demonstração de qualidade (animações fluidas, copy forte, velocidade).
+Voz: elegante, direta, confiante e acolhedora. Fale como uma especialista que entende de estética e de conversão. Sem promessas absurdas.
+2. Autoridade a comunicar (usar em todo o site)
+• Especialista em sites para profissionais da harmonização facial.
+• Lana: web designer e desenvolvedora, mais de 4 anos de experiência, mais de 500 sites entregues para clientes em vários países ([N] países: confirmar o número).
+• Sites únicos (nada de template), com SEO, GEO e AIO, design de luxo e animações.
+3. Sistema visual
+3.1 Tokens
+:root{
+  --bg:#FBF7EF;        /* bege claro, fundo principal */
+  --bg-2:#F3EBDC;      /* champanhe claro, fundo alternado */
+  --bg-3:#EDE2CD;      /* bege mais profundo, topo do hero e rodapé */
+  --ink:#2D2B28;       /* grafite, texto */
+  --soft:#7B756B;      /* cinza quente, texto de apoio */
+  --gold:#B8924A;  --gold-2:#E8D3A0;  --gold-3:#9C7A32;
+  --white:#FFFFFF;
+  --r:34px;  --r-pill:999px;
+  --shadow:0 18px 60px rgba(70,60,30,.12);   /* sombra quente neutra, nunca marrom */
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+Regra: proibido usar marrom (nem em texto, faixas, rodapé, sombras ou bordas). Para contraste use --ink, e para destaque use dourado.
+3.2 Fundos por sessão (alternar)
+Hero: linear-gradient(180deg,var(--bg-3),var(--bg) 75%). Depois alternar --bg e --bg-2. CTA final: degradê de --bg para --bg-3. Rodapé: --bg-3. Faixa: dourado metálico.
+3.3 Tipografia
+Títulos Cormorant Garamond 500 (itálico nas palavras de destaque) e corpo Jost 300/400. Escala: h1 clamp(44px,7vw,98px), h2 clamp(34px,5vw,64px), h3 26px, corpo 17px com line-height:1.7. Linhas com no máximo 62 caracteres.
+3.4 Efeito dourado espelhado (usar nos destaques)
+.au{background:linear-gradient(100deg,#9C7A32 0,#F5E2A8 25%,#B8924A 45%,#FFF3C9 55%,#B8924A 70%,#9C7A32);
+  background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:sheen 6s linear infinite;font-style:italic}
+@keyframes sheen{to{background-position:-300% 0}}
+3.5 Componentes
+.btn{display:inline-block;padding:16px 38px;border-radius:var(--r-pill);border:1px solid var(--gold);color:var(--ink);
+  font:500 15px Jost;letter-spacing:.05em;text-decoration:none;cursor:pointer;
+  background:linear-gradient(110deg,#F0DFAE,#C9A25A 45%,#F0DFAE 60%,#C9A25A);background-size:240% 100%;
+  transition:background-position .7s var(--ease),transform .3s var(--ease)}
+.btn:hover{background-position:100% 0;transform:translateY(-2px)}
+.glass{background:rgba(255,255,255,.6);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.9);box-shadow:var(--shadow)}
+.card{background:#fff;border-radius:var(--r);padding:30px;box-shadow:var(--shadow)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+3.6 Uso da logo
+A logo é um símbolo branco sobre fundo dourado escovado. Use a imagem quadrada com border-radius:34px e sombra dourada. Na navegação, use um recorte circular de 42px (background-size:230%; background-position:60.6% 44.7%). Arquivo: img/logo.jpg.
+4. Stack e desempenho
+• HTML5 semântico, CSS moderno e JavaScript. GSAP 3 + ScrollTrigger e Lenis por CDN com versão fixa. Fontes: Google Fonts.
+• Arquivos: index.html, styles.css, app.js, config.js, pasta /img, llms.txt, robots.txt, sitemap.xml.
+• Imagens WebP com srcset, width e height declarados, loading=lazy abaixo da dobra, fetchpriority=high na foto do hero.
+• Metas: LCP abaixo de 2,5 s em 4G, Lighthouse mobile acima de 90 em desempenho, acessibilidade e SEO.
+• prefers-reduced-motion: sem voo do brilho (ele só aparece fixo em cada título), sem faixa em movimento e sem partículas.
+5. Estrutura da página
+1. Navegação
+2. Hero
+3. Faixa dourada
+4. Logo e frase entre aspas
+5. O problema (a paciente pesquisa antes de agendar)
+6. Com site ou sem site
+7. O que tem no seu site
+8. SEO, GEO e AIO
+9. Sites únicos e design
+10. Veja na prática (demonstração)
+11. Como funciona (processo e esboço grátis)
+12. Sobre a Glow e sobre a Lana
+13. Feedbacks
+14. FAQ
+15. Pedir esboço sem custo (formulário)
+16. Rodapé
+Toda sessão tem título (classe .tt), subtítulo e um botão de ação. O brilho viajante usa os elementos .tt como destinos.
+6. config.js (todo o conteúdo variável)
+export const SITE = {
+  marca:{ nome:'Glow Sites', instagram:'https://www.instagram.com/glow.websites/', whatsapp:'557192102766', email:'[EMAIL]', dominio:'[https://DOMINIO]' },
+  lana:{ nome:'Lana', foto:'img/lana.webp', anos:4, sites:500, paises:'vários' },
+  frase:'Sua técnica transforma rostos. Seu site transforma desconhecidas em pacientes.',
+  hero:{
+    titulo:'Sua clínica é premium. Seu site também deveria ser.',
+    destaque:'Seu site também deveria ser.',
+    subtitulo:'Criamos sites de luxo para profissionais da harmonização facial: únicos, rápidos e preparados para o Google e para as IAs, para que a paciente certa te encontre, confie e agende.',
+    cards:['+500 sites entregues','+4 anos de experiência','Clientes em vários países'],
+    cta:'Quero meu esboço sem custo',
+    flutuantes:[{t:'Esboço grátis',s:'Sem compromisso'},{t:'SEO, GEO e AIO',s:'Para ser encontrada'}]
+  },
+  faixa:['Sites únicos','SEO','GEO','AIO','Design de luxo','Harmonização facial'],
+  mensagemWhats:'Olá, Lana! Vim pelo site da Glow Sites e quero receber um esboço sem custo.',
+  modulos:[ {t:'Animações com propósito',d:'Brilhos, transições e detalhes que dão vida ao site sem pesar.'} /* 10 itens, ver sessão 9.7 */ ],
+  feedbacks:[ {nome:'Dra. Camila R.',area:'Harmonização facial',texto:'[Depoimento real]'} /* mínimo 8, reais e autorizados */ ],
+  faq:[ {p:'Como funciona o esboço sem custo?',r:'...'} /* 10 itens, ver sessão 9.14 */ ],
+  demo:{ video:'img/demo-celular.mp4', link:'[URL do site modelo]' },
+  mostrarPreco:false, precoInicial:'[R$]'
+};
+7. Navegação e elementos globais
+• Nav em pílula de vidro flutuante (position:fixed, top:12px, largura min(92%,920px)): logo circular, nome Glow Sites e botão Pedir esboço grátis. No celular, os links ficam num menu em tela cheia com cortina. Respeitar env(safe-area-inset-top).
+• WhatsApp flutuante (60px, canto inferior direito, pulso suave, respeita env(safe-area-inset-bottom)).
+• Scroll suave com Lenis. Títulos revelados por linha com máscara (uma vez por sessão). Entrada das sessões com fade e subida de 26px.
+• Função wa(texto) gera https://wa.me/557192102766?text=... com encodeURIComponent.
+const wa=t=>`https://wa.me/${SITE.marca.whatsapp}?text=${encodeURIComponent(t)}`;
+document.querySelectorAll('[data-wa]').forEach(a=>{a.href=wa(SITE.mensagemWhats);a.target='_blank';a.rel='noopener'});
+const lenis=new Lenis({duration:1.15});lenis.on('scroll',ScrollTrigger.update);
+gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
+8. Brilho viajante (assinatura do site)
+Uma estrela dourada de 4 pontas, com halo de luz, que está sempre visível e acompanha a pessoa por todo o site, do hero até o rodapé. Ela não fica presa a um canto: ela vive nos títulos e viaja entre eles.
+8.1 Comportamento (máquina de estados)
+• DOCK (pousada): a estrela fica acima do título .tt da sessão atual (no centro, se o título for centralizado, ou no canto esquerdo, se for alinhado à esquerda). Pulsa devagar. Ao pousar, solta uma explosão de 16 faíscas e acende uma linha dourada sob o título (classe .lit), com um brilho que atravessa o título uma vez.
+• RIDE (acompanhando): quando o título pousado sai da tela (rolou para cima), a estrela se solta e acompanha a rolagem na lateral da tela (x em 5% da largura no desktop e 18px no celular, y em cerca de 38% da altura), flutuando com inércia, com leve balanço e deixando um rastro de faíscas proporcional à velocidade de scroll.
+• FLY (voo): quando o título da próxima sessão entra em 70% da altura da tela, a estrela voa em arco até ele (800 a 1300 ms, mais longo para distâncias maiores), com rastro, e pousa (DOCK). Se a pessoa rola para cima, ela volta para o título anterior da mesma forma.
+• Inicio: começa pousada no título do hero, visível logo na abertura.
+• Fim: no rodapé, pousa sobre o nome Glow Sites e solta a última explosão.
+8.2 Marcação
+<div id='star' aria-hidden='true'><svg viewBox='0 0 40 40'><path d='M20 0l4.5 15.5L40 20l-15.5 4.5L20 40l-4.5-15.5L0 20l15.5-4.5z' fill='#FFF3C9'/></svg></div>
+<h1 class='tt'>...</h1>  <h2 class='tt'>...</h2>   <!-- um .tt por sessão -->
+#star{position:fixed;left:0;top:0;width:40px;height:40px;margin:-20px 0 0 -20px;z-index:46;pointer-events:none;
+  filter:drop-shadow(0 0 8px #F5E2A8) drop-shadow(0 0 24px #E8C878);will-change:transform}
+#star svg{width:100%;height:100%;animation:tw 2.4s ease-in-out infinite}
+@keyframes tw{50%{transform:scale(1.3) rotate(30deg)}}
+.pt{position:fixed;width:7px;height:7px;margin:-3px;border-radius:50%;background:#F5E2A8;box-shadow:0 0 10px 3px #E8C878;
+  z-index:45;pointer-events:none;animation:pf 1.2s ease-out forwards}
+@keyframes pf{to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.2)}}
+h2.tt::after,h1.tt::after{content:'';display:block;height:2px;width:0;margin-top:14px;background:linear-gradient(90deg,var(--gold),transparent);transition:width 1.3s var(--ease)}
+.c .tt::after{margin-inline:auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.tt.lit::after{width:120px}
+@media(max-width:820px){#star{width:32px;height:32px;margin:-16px 0 0 -16px}}
+@media(prefers-reduced-motion:reduce){#star svg{animation:none}}
+8.3 Lógica (mola com inércia, loop único em requestAnimationFrame)
+const tt=[...document.querySelectorAll('.tt')], star=document.getElementById('star');
+const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const S={x:innerWidth*.12,y:160,vx:0,vy:0,i:0,mode:'dock',last:0,lastY:scrollY,vel:0};
+
+const anchor=h=>{const r=h.getBoundingClientRect(),c=getComputedStyle(h).textAlign==='center';
+  return{x:r.left+(c?r.width/2:22), y:r.top-34, top:r.top, bottom:r.bottom}};
+const clampY=y=>Math.min(innerHeight-60,Math.max(70,y));
+
+function dot(x,y,far=40){const d=document.createElement('i');d.className='pt';d.style.left=x+'px';d.style.top=y+'px';
+  d.style.setProperty('--dx',((Math.random()-.5)*far)+'px');d.style.setProperty('--dy',((Math.random()-.5)*far)+'px');
+  document.body.appendChild(d);setTimeout(()=>d.remove(),1200)}
+function land(h){for(let i=0;i<16;i++)dot(S.x,S.y,160);h.classList.add('lit')}
+
+// decide qual título é o atual: o último cujo topo já passou de 70% da altura da tela
+function pickIndex(){let d=0;tt.forEach((h,i)=>{if(h.getBoundingClientRect().top<innerHeight*.7)d=i});return d}
+
+let prev=performance.now();
+function frame(now){
+  const dt=Math.min(.05,(now-prev)/1000);prev=now;
+  S.vel=Math.abs(scrollY-S.lastY)/Math.max(dt,.001);S.lastY=scrollY;
+  const d=pickIndex();
+  if(d!==S.i){S.i=d;S.mode='fly';S.flyStart=now}
+  const a=anchor(tt[S.i]), rideX=innerWidth>820?innerWidth*.05:18, rideY=innerHeight*.38+Math.sin(now/700)*14;
+  const visible=a.bottom>80&&a.top<innerHeight-40;
+  let tx,ty,k,c;
+  if(S.mode==='fly'){tx=a.x;ty=clampY(a.y);k=70;c=2*Math.sqrt(k)*.62;                 // voo: mola solta, faz arco
+    if(Math.hypot(S.x-tx,S.y-ty)<8&&visible){S.mode='dock';land(tt[S.i])}}
+  else if(S.mode==='dock'){tx=a.x;ty=a.y;k=220;c=2*Math.sqrt(k);                       // gruda no título
+    if(!visible)S.mode='ride'}
+  else{tx=rideX;ty=rideY;k=34;c=2*Math.sqrt(k)*.8;                                       // acompanha a rolagem
+    if(visible&&a.top<innerHeight*.7)S.mode='fly'}
+  // arco: acrescenta desvio lateral proporcional à distância durante o voo
+  const dist=Math.hypot(tx-S.x,ty-S.y), side=S.mode==='fly'?Math.sin(Math.min(1,dist/500)*Math.PI)*120:0;
+  const ax=(tx-S.x)*k-S.vx*c+side*k*.004, ay=(ty-S.y)*k-S.vy*c;
+  if(still){S.x=tx;S.y=ty}else{S.vx+=ax*dt;S.vy+=ay*dt;S.x+=S.vx*dt;S.y+=S.vy*dt}
+  star.style.transform=`translate(${S.x}px,${S.y}px)`;
+  if(!still&&(S.mode!=='dock')&&now-S.last>(S.mode==='fly'?25:Math.max(60,220-S.vel/8))){S.last=now;dot(S.x,S.y,S.mode==='fly'?40:26)}
+  requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+function snap(){const a=anchor(tt[S.i]);S.x=a.x;S.y=clampY(a.y);S.vx=S.vy=0}
+addEventListener('resize',snap);addEventListener('load',snap);snap();tt[0].classList.add('lit');
+Melhorias esperadas: suavizar o desenho do arco do voo, aumentar levemente o halo durante o voo, adicionar um brilho que atravessa o título ao pousar (máscara de gradiente dourado animada em background-position) e testar que nenhuma partícula gera rolagem horizontal. A estrela nunca bloqueia cliques (pointer-events:none) e fica abaixo da navegação (z-index 46 contra 50).
+Aceite do brilho: (1) visível na abertura; (2) acompanha a rolagem enquanto o título está fora da tela; (3) ao chegar a próxima sessão, voa e pousa sobre o novo título com explosão e linha dourada; (4) voltando para cima, volta ao título anterior; (5) termina no rodapé; (6) 60 fps no celular intermediário.
+9. Sessões em detalhe
+9.1 Navegação
+Ver sessão 7. Links âncora: O que tem, SEO e IA, Na prática, Processo, Sobre, Dúvidas. Botão: Pedir esboço grátis (data-wa). Fica transparente no topo e ganha vidro ao rolar.
+9.2 Hero
+• Título (novo): Sua clínica é premium. Seu site também deveria ser. (a segunda frase em .au, dourado espelhado)
+• Subtítulo (novo): Criamos sites de luxo para profissionais da harmonização facial: únicos, rápidos e preparados para o Google e para as IAs, para que a paciente certa te encontre, confie e agende.
+• Cartões de vidro em pílula (3): +500 sites entregues, +4 anos de experiência, Clientes em vários países.
+• Botão: Quero meu esboço sem custo. Linha de apoio abaixo do botão: Sem compromisso. Resposta direto no WhatsApp.
+• Foto da Lana: em arco (topo semicircular, base com cantos de 34px), borda branca de 6px, sombra quente neutra, sem círculo ou anel girando. Atrás dela, uma moldura dourada fina deslocada 18px. Dois cartões de vidro flutuantes sobre a foto (Esboço grátis, SEO + GEO + AIO) com movimento lento de sobe e desce.
+• Mobile: a foto vem antes do texto (order:-1), em 78% da largura.
+• Entrada: foto abre do centro em arco, título revelado por linha, cartões em sequência.
+.hero{padding:140px 24px 90px;min-height:100svh;overflow:hidden;background:linear-gradient(180deg,var(--bg-3),var(--bg) 75%)}
+.hero .in{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.doc{position:relative;width:min(100%,420px);justify-self:center}
+.doc::before{content:'';position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--gold);
+  border-radius:999px 999px var(--r) var(--r);z-index:1}
+.doc__photo{position:relative;z-index:2;aspect-ratio:4/5;border-radius:999px 999px var(--r) var(--r);
+  border:6px solid #fff;background:center top/cover var(--foto);box-shadow:var(--shadow)}
+.float{position:absolute;z-index:3;padding:12px 18px;border-radius:var(--r-pill);font-size:14px;animation:bob 6s ease-in-out infinite}
+.float--a{left:-26px;bottom:18%}.float--b{right:-22px;top:14%;animation-delay:-3s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+@media(max-width:820px){.hero{padding-top:110px}.hero .in{grid-template-columns:1fr}.doc{order:-1;width:min(78%,320px)}
+  .float--a{left:-8px}.float--b{right:-8px}}
+9.3 Faixa dourada
+Faixa de dourado metálico (gradiente animado) com palavras em itálico serifado grafite: Sites únicos, SEO, GEO, AIO, Design de luxo, Harmonização facial, separadas por ✦. Rolagem horizontal contínua, inverte o sentido ao rolar para cima, pausa no hover.
+.band{overflow:hidden;white-space:nowrap;padding:16px 0;background:linear-gradient(100deg,#C9A25A,#F3E3B2 30%,#C9A25A 55%,#F3E3B2 80%,#C9A25A);
+  background-size:300% 100%;animation:sheen 12s linear infinite}
+.band__track{display:inline-block;animation:slide 34s linear infinite;font:italic 500 32px 'Cormorant Garamond',serif;color:var(--ink)}
+.band__track span{padding:0 28px}
+@keyframes slide{to{transform:translateX(-50%)}}
+9.4 Logo e frase entre aspas
+Logo quadrada (150px, cantos de 34px, sombra dourada) e a frase centralizada em itálico serifado grande, com a segunda parte em .au: “Sua técnica transforma rostos. Seu site transforma desconhecidas em pacientes.” Esse é um .tt (o brilho pousa aqui). Entrada com fade e escala suave.
+9.5 O problema
+• Título: Antes de agendar, a paciente pesquisa. Subtítulo: Ela compara, procura prova de que você é segura e decide por confiança. Onde ela te encontra define se ela chega até você.
+• 3 cartões: 1) Ela pergunta ao Google e às IAs: quem faz harmonização facial perto de mim? 2) Ela compara perfis e procura autoridade, resultados e organização. 3) Ela escolhe quem passa segurança. O site é onde essa decisão acontece.
+• Botão: Quero ser a escolhida.
+9.6 Com site ou sem site
+• Título: Ter um site, ou não ter: a diferença é a confiança. Subtítulo: Seu Instagram é sua vitrine. O site é a sua clínica aberta 24 horas.
+• Dois cartões lado a lado (empilhados no celular). Esquerda (fundo --bg-3), Só com Instagram: depende do algoritmo para ser vista; informação solta e sem organização; difícil de ser encontrada no Google e nas IAs; parece mais uma entre milhares; mensagens sem contexto no WhatsApp. Direita (dourado metálico, sombra dourada), Com um site Glow: presença própria que você controla; serviços, resultados e autoridade num só lugar; estrutura pensada para SEO, GEO e AIO; aparência de clínica premium; pedido de agendamento já com serviço e horário.
+• Animação: os itens do cartão dourado entram um a um, cada um acendendo um ✦.
+9.7 O que tem no seu site
+• Título: O que tem no seu site. Subtítulo: Cada projeto é feito do zero para a sua marca, com tudo que uma paciente espera encontrar.
+• 10 módulos em grade (minmax(240px,1fr)), cada um com um ícone de linha dourada que se desenha ao entrar na tela (stroke-dashoffset), título e uma linha: animações com propósito (brilhos e transições que dão vida sem pesar); serviços com benefícios (foto, descrição e benefícios que abrem ao toque); galeria de resultados (painel elegante com autorização das pacientes); sobre você com autoridade (sua história e formação com copy que conecta); Instagram integrado (Reels tocando no site, sem capa); feedbacks com estrelas (prova social organizada); Google Maps e estúdio (fotos do espaço e como chegar); formulário para o WhatsApp (escolhe serviço e horário e envia mensagem pronta); FAQ e botão flutuante (dúvidas respondidas e WhatsApp sempre à mão); 100% responsivo e rápido (perfeito no celular).
+• Hover: cartão sobe 4px e um reflexo dourado segue o cursor (radial-gradient na posição do mouse).
+document.querySelectorAll('.mod').forEach(c=>c.addEventListener('pointermove',e=>{
+  const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')}));
+/* .mod::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+   background:radial-gradient(220px circle at var(--mx) var(--my),rgba(232,211,160,.35),transparent 70%);opacity:0;transition:opacity .3s}
+   .mod:hover::after{opacity:1} */
+9.8 SEO, GEO e AIO
+• Título: Para ser encontrada no Google e nas inteligências artificiais. Subtítulo: Hoje as pacientes perguntam ao Google, ao ChatGPT e a outras IAs quem procurar. Seu site é construído para ser compreendido por todos eles.
+• 3 cartões: SEO: estrutura técnica, velocidade, títulos e textos pensados para o Google, com foco em buscas locais como harmonização facial na sua cidade. GEO: conteúdo claro e organizado para ser citada em respostas geradas por IA, com os dados do seu consultório estruturados e fáceis de ler por máquinas. AIO: otimização para os resumos e as recomendações das ferramentas de IA, com perguntas e respostas reais que mostram sua autoridade. Cada cartão vira, ao toque, uma lista do que é entregue.
+• Diagrama animado de 4 passos (linha dourada que se desenha ao rolar): A paciente pergunta, Google e IA leem o seu site, Você é encontrada e citada, Ela chega e agenda.
+• Nota honesta (fonte pequena): Nenhum profissional sério garante a primeira posição. Entregamos a base técnica e o conteúdo certos para você disputar com vantagem.
+9.9 Sites únicos e design
+• Título: Sites únicos. Nada de template. Subtítulo: Layout, cores, animações e textos nascem da identidade de cada profissional. Duas clínicas nunca terão o mesmo site.
+• Conteúdo: carrossel de 3 a 5 prints de projetos reais (autorizados), em molduras de celular e notebook com inclinação suave e parallax. Abaixo, 3 pilares em linha: Design de luxo, Animações que impressionam, Copy que cria desejo e autoridade.
+9.10 Veja na prática
+• Título: Veja um site Glow em ação. Subtítulo: Um exemplo real, navegando como a sua paciente navegaria.
+• Moldura de celular em vidro fosco com vídeo em autoplay muted loop playsinline que mostra a rolagem de um site modelo (sem capa), e ao lado três pontos: Animações, SEO e velocidade, Perfeito no celular. Botão: Ver o site modelo (abre SITE.demo.link em nova aba).
+.phone{width:min(100%,300px);aspect-ratio:9/19;border-radius:44px;padding:10px;margin:auto;background:rgba(255,255,255,.6);
+  border:1px solid #fff;box-shadow:var(--shadow);backdrop-filter:blur(16px)}
+.phone video{width:100%;height:100%;object-fit:cover;border-radius:34px;display:block}
+9.11 Como funciona
+• Título: Do esboço ao site no ar, em 4 passos. Subtítulo: Você vê o design antes de decidir qualquer coisa.
+• Linha do tempo vertical com uma linha dourada que se desenha ao rolar (stroke-dashoffset ligado ao scroll) e acende cada etapa: 1) Esboço sem custo: você conta sobre a sua marca e eu crio uma primeira ideia visual. 2) Aprovação: ajustamos juntas até o design ser a sua cara. 3) Desenvolvimento: construo o site completo, com animações, copy e SEO. 4) Publicação: seu site no ar, rápido e pronto para receber pacientes.
+• Botão: Começar pelo esboço sem custo.
+gsap.fromTo('#tl path',{strokeDashoffset:1},{strokeDashoffset:0,ease:'none',
+  scrollTrigger:{trigger:'#processo',start:'top 70%',end:'bottom 60%',scrub:.4}});
+9.12 Sobre a Glow e sobre a Lana
+• Título: Sobre a Glow Sites e sobre mim. Subtítulo: Design sofisticado, estratégia de verdade e cuidado em cada detalhe.
+• Layout: foto da Lana em arco com moldura dourada fina (como no hero, sem anel girando), texto à direita; no celular, foto primeiro.
+• Texto (2 parágrafos): Sou a Lana, web designer e desenvolvedora há mais de 4 anos. Já entreguei mais de 500 sites para profissionais em vários países e aprendi que beleza sem estratégia não converte, e estratégia sem beleza não encanta. / A Glow Sites nasceu para unir os dois, com foco em quem trabalha com harmonização facial: design sofisticado, animações que impressionam e uma copy que cria desejo, aumenta sua autoridade e leva a paciente ao agendamento.
+• Contadores animados: +500 sites, +4 anos, [N] países. Botões: Falar com a Lana e Ver meu Instagram (SITE.marca.instagram).
+document.querySelectorAll('[data-count]').forEach(el=>{const end=+el.dataset.count;
+  ScrollTrigger.create({trigger:el,start:'top 85%',once:true,onEnter(){const o={v:0};
+    gsap.to(o,{v:end,duration:1.6,ease:'power2.out',onUpdate(){el.textContent=Math.round(o.v)+(el.dataset.sufixo||'')}})}})});
+9.13 Feedbacks
+• Título: Quem já brilhou com a Glow. Subtítulo: Relatos de profissionais que transformaram a presença digital.
+• Mínimo de 8 depoimentos em carrossel horizontal com arraste (mouse e toque) e setas, 3 por vez no desktop. Cada um com 5 estrelas douradas em SVG que se preenchem em sequência, texto de 2 a 3 frases, nome e área. Usar somente depoimentos reais e autorizados.
+9.14 FAQ
+Acordeão com <details>, um item aberto por vez, títulos em serifa. 10 perguntas: Como funciona o esboço sem custo? Em quanto tempo o site fica pronto? O site é um template? O que é SEO, GEO e AIO? Vocês garantem a primeira posição no Google? Consigo atualizar o site depois? O site funciona bem no celular? Vocês escrevem os textos? Posso usar meu domínio? Vocês atendem fora do Brasil? Respostas curtas, honestas e sem promessa de resultado. Gerar também o JSON-LD FAQPage (sessão 10).
+9.15 Pedir esboço sem custo (CTA final)
+• Título: Receba um esboço do seu site, sem custo. Subtítulo: Conte um pouco sobre você e eu preparo uma primeira ideia visual para o seu consultório. Sem compromisso.
+• Formulário em cartão de vidro: nome, área de atuação (select), cidade, Instagram e o que você mais quer (opções em chips: Mais pacientes, Visual de luxo, Aparecer no Google e nas IAs, Tudo isso). Mensagem pronta visível antes do envio, botão Pedir meu esboço pelo WhatsApp e link Copiar mensagem. Nome é obrigatório.
+function msg(){return 'Olá, Lana! Meu nome é '+(nome.value||'[nome]')+'. Atuo com '+area.value+', em '+(cidade.value||'[cidade]')+
+  '. Meu Instagram: '+(insta.value||'[perfil]')+'. Quero '+([...chips].map(c=>c.textContent).join(', ')||'um site de luxo')+
+  '. Gostaria de receber um esboço do meu site sem custo.'}
+send.onclick=()=>{if(!nome.value.trim()){nome.focus();return}track('esboco_enviado');open(wa(msg()),'_blank')};
+9.16 Rodapé
+Fundo --bg-3. Logo (84px, cantos de 22px), nome Glow Sites em dourado (.tt: o brilho pousa aqui no final), frase de posicionamento (Sites de luxo para a harmonização facial), Instagram, WhatsApp, e-mail e links âncora. Ano atualizado automaticamente.
+10. SEO, GEO e AIO implementados no próprio site
+A Glow precisa provar o que vende. Implemente tudo abaixo.
+SEO (Google)
+• <title>: Sites para harmonização facial | Glow Sites (até 60 caracteres). Meta description de até 155 caracteres: Sites únicos e de luxo para profissionais da harmonização facial, com SEO, GEO e AIO. Peça seu esboço sem custo.
+• Um único <h1> (o título do hero) e <h2> por sessão, em ordem lógica. Textos reais em HTML (nunca em imagem). alt descritivo em todas as imagens. lang='pt-BR'.
+• canonical, Open Graph e Twitter Card com imagem 1200x630, robots.txt e sitemap.xml.
+• Velocidade: CSS crítico inline, fontes com display=swap, WebP, loading=lazy, sem bibliotecas desnecessárias.
+GEO e AIO (respostas de IA)
+• Dados estruturados (JSON-LD) completos de organização, pessoa e perguntas e respostas.
+• /llms.txt na raiz do site, resumindo em linguagem simples quem é a Glow, o que faz, para quem, e links das páginas principais.
+• Seções escritas como perguntas e respostas diretas (FAQ) e frases objetivas que uma IA consiga citar, com a entidade clara: Glow Sites, Lana, sites para harmonização facial.
+• Dados de contato consistentes em todo lugar (nome, WhatsApp, Instagram), para a IA reconhecer a mesma entidade.
+<script type='application/ld+json'>
+{
+ 'context':'https://schema.org',
+ 'graph':[
+  {'type':'ProfessionalService','name':'Glow Sites','url':'[https://DOMINIO]','image':'[URL da logo]',
+   'description':'Sites únicos e de luxo para profissionais da harmonização facial, com SEO, GEO e AIO.',
+   'telephone':'+55 71 92102-766','sameAs':['https://www.instagram.com/glow.websites/'],
+   'founder':{'type':'Person','name':'Lana','jobTitle':'Web designer e desenvolvedora'},
+   'areaServed':'Brasil e exterior','knowsAbout':['harmonização facial','web design','SEO','GEO','AIO']},
+  {'type':'FAQPage','mainEntity':[{'type':'Question','name':'Como funciona o esboço sem custo?',
+   'acceptedAnswer':{'type':'Answer','text':'Você envia seus dados pelo WhatsApp e a Lana prepara uma primeira ideia visual do seu site, sem compromisso.'}}]}
+ ]
+}
+</script>
+Na hora de gerar o arquivo final, troque as aspas simples do JSON-LD por aspas duplas, escreva @context, @graph e @type com o arroba, e preencha o telefone correto +55 71 9210-2766. Gere um item Question para cada pergunta do FAQ.
+# llms.txt
+# Glow Sites
+> Estúdio de web design da Lana, especializado em sites únicos e de luxo para profissionais da harmonização facial, com SEO, GEO e AIO.
+- Lana: web designer e desenvolvedora, mais de 4 anos de experiência e mais de 500 sites entregues em vários países.
+- Contato: WhatsApp +55 71 9210-2766, Instagram https://www.instagram.com/glow.websites/
+- Serviço: sites sob medida, esboço sem custo, copy, SEO, GEO e AIO, design e animações.
+11. Responsividade
+• Mobile first. Breakpoints: 480, 820, 1200 e 1600px.
+• Alvos de toque de pelo menos 44px. Nenhuma rolagem horizontal em 320px (partículas e estrela dentro de position:fixed).
+• min-height:100svh no hero. Respeitar env(safe-area-inset-*) na nav e no botão de WhatsApp.
+• No celular: foto do hero antes do texto, cartões flutuantes menores, grades em 1 coluna, carrossel por toque, estrela com 32px e rastro menor.
+• Efeitos de cursor e reflexos no hover apenas em (hover:hover).
+• Testar em iPhone SE, iPhone 14, Galaxy S21, iPad e notebook de 1366px.
+12. Analytics
+Função track(nome,dados) enviando para GA4 e Meta Pixel (IDs em config). Eventos: clique em qualquer botão do WhatsApp (com a sessão de origem), abertura de cartão de SEO/GEO/AIO, play da demonstração, rolagem a 50% e 90%, início e envio do formulário (esboco_enviado).
+13. Acessibilidade e conformidade
+• Contraste AA, foco visível dourado, aria-expanded nos acordeões, aria-hidden='true' na estrela e nas partículas, prefers-reduced-motion respeitado, ordem de tabulação lógica.
+• Conteúdo honesto: depoimentos reais e autorizados; números (500 sites, 4 anos) devem ser verdadeiros e comprováveis; sem prometer primeira posição no Google nem retorno financeiro garantido. Imagens de portfólio somente com autorização dos clientes.
+• LGPD: aviso curto de privacidade no rodapé e no formulário (os dados são usados só para o contato do esboço).
+14. Critérios de aceite
+1. Paleta só bege claro e dourado, sem nenhum marrom.
+2. Hero com o novo título e subtítulo, foto da Lana em arco, sem anel girando, e foto antes do texto no celular.
+3. O brilho viajante está visível na abertura, acompanha a rolagem, voa em arco até o título de cada sessão, pousa com explosão e linha dourada, volta ao título anterior ao rolar para cima e termina no rodapé.
+4. As 16 sessões existem, na ordem da sessão 5, cada uma com título, subtítulo e botão.
+5. Todos os botões abrem o WhatsApp (55) 71 9210-2766 com a mensagem pronta. O formulário gera a mensagem correta.
+6. JSON-LD válido (organização, pessoa, FAQ), llms.txt, robots.txt, sitemap.xml e metas completas.
+7. Lighthouse mobile acima de 90 em desempenho, acessibilidade e SEO. Sem rolagem horizontal em 320px.
+8. Parece feito sob medida: layout editorial, sem aparência de template genérico.
+15. Assets
+• img/logo.jpg: símbolo dourado (arquivo enviado pela Lana).
+• img/lana.webp: foto da Lana, retrato com fundo claro e roupa em tons de bege (arquivo enviado).
+• img/demo-celular.mp4: gravação de rolagem de um site modelo no celular (até 8 MB).
+• 3 a 5 prints de projetos reais (autorizados), 1 imagem Open Graph 1200x630.
+• Dados a confirmar: número de países, e-mail, domínio, depoimentos reais, preço inicial (opcional).
+16. Prompt para colar no Google AI Studio
+Você é um desenvolvedor front-end sênior e diretor de arte. Construa o site descrito neste PRD em index.html, styles.css, app.js e config.js, com GSAP, ScrollTrigger e Lenis por CDN. Siga exatamente as decisões fechadas da sessão 0, as 16 sessões da sessão 5 e os códigos como ponto de partida, e melhore: refinamento tipográfico, fluidez, inércia, profundidade nos cartões de vidro, microinterações e acabamento. Use apenas bege claro e dourado, sem marrom. Não coloque anel nem círculo girando em volta da foto do hero. Implemente o brilho viajante da sessão 8 com os três estados (pousada, acompanhando e voo), garantindo que ele acompanhe a rolagem e salte de título em título até o rodapé. Implemente o SEO, GEO e AIO da sessão 10. O resultado deve parecer um site de alto padrão: editorial, assimétrico, sem cara de template. 100% responsivo, rápido, com a foto da Lana antes do texto no celular. Entregue o código completo e comentado, com as imagens como espaços reservados fáceis de trocar. 

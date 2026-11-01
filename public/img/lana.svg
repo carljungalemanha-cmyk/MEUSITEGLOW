@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="studioBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3EBDC"/>
+      <stop offset="60%" stop-color="#EDE2CD"/>
+      <stop offset="100%" stop-color="#E2D4BB"/>
+    </linearGradient>
+    <radialGradient id="softSun" cx="60%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#FFFDF7" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#EDE2CD" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="blazer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBF7EF"/>
+      <stop offset="50%" stop-color="#F1E7D4"/>
+      <stop offset="100%" stop-color="#DDCFB9"/>
+    </linearGradient>
+    <linearGradient id="goldAcc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9C7A32"/>
+      <stop offset="50%" stop-color="#E8D3A0"/>
+      <stop offset="100%" stop-color="#B8924A"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCEEE2"/>
+      <stop offset="70%" stop-color="#F4DAC7"/>
+      <stop offset="100%" stop-color="#E7C5AE"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3D2E26"/>
+      <stop offset="40%" stop-color="#4A3B31"/>
+      <stop offset="100%" stop-color="#2D211B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Studio Warm Background -->
+  <rect width="800" height="1000" fill="url(#studioBg)"/>
+  <rect width="800" height="1000" fill="url(#softSun)"/>
+
+  <!-- Architectural minimal arched relief behind -->
+  <path d="M 220,950 V 380 A 180,180 0 0,1 580,380 V 950 Z" fill="#F8F3E8" opacity="0.6"/>
+
+  <!-- Subtle gold hairline in backdrop -->
+  <path d="M 240,950 V 390 A 160,160 0 0,1 560,390 V 950" fill="none" stroke="url(#goldAcc)" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Lana Portrait Illustration -->
+  <g id="figure" transform="translate(400, 520)">
+    <!-- Shoulders & Tailored Cream Linen Blazer -->
+    <path d="M -260,480 C -250,300 -180,210 -110,180 L -80,130 L 80,130 L 110,180 C 180,210 250,300 260,480 Z" fill="url(#blazer)"/>
+    <!-- Blazer Lapels & Collar -->
+    <path d="M -80,130 L -30,340 L 0,380 L 30,340 L 80,130 L 30,170 L -30,170 Z" fill="#E8DBC5"/>
+    <path d="M -40,170 L 0,260 L 40,170 Z" fill="#FFFDF9"/>
+    <!-- Delicate Gold Necklace -->
+    <path d="M -35,120 Q 0,170 35,120" fill="none" stroke="url(#goldAcc)" stroke-width="2.5"/>
+    <circle cx="0" cy="155" r="4" fill="#B8924A"/>
+
+    <!-- Neck -->
+    <path d="M -40,40 L -40,130 Q 0,150 40,130 L 40,40 Z" fill="url(#skin)"/>
+    <path d="M -40,40 Q 0,110 40,40 Z" fill="#E2BA9E" opacity="0.4"/>
+
+    <!-- Hair (Back waves) -->
+    <path d="M -140,-40 C -160,80 -130,220 -80,260 C -40,160 -60,40 -60,-40 Z" fill="url(#hair)"/>
+    <path d="M 140,-40 C 160,80 130,220 80,260 C 40,160 60,40 60,-40 Z" fill="url(#hair)"/>
+
+    <!-- Head & Jawline -->
+    <path d="M -85,-110 C -85,-230 85,-230 85,-110 C 85,10 55,70 0,95 C -55,70 -85,10 -85,-110 Z" fill="url(#skin)"/>
+
+    <!-- Hair (Front styled parting) -->
+    <path d="M -90,-110 C -95,-240 90,-250 95,-110 C 95,-60 115,20 125,120 C 100,100 85,40 75,-30 C 40,-90 -20,-110 -70,-80 C -80,-50 -90,40 -115,120 C -110,40 -95,-40 -90,-110 Z" fill="url(#hair)"/>
+
+    <!-- Delicate Gold Earrings -->
+    <ellipse cx="-86" cy="-40" rx="3" ry="12" fill="url(#goldAcc)"/>
+    <ellipse cx="86" cy="-40" rx="3" ry="12" fill="url(#goldAcc)"/>
+
+    <!-- Facial Features: refined, warm, professional -->
+    <!-- Eyebrows -->
+    <path d="M -60,-105 Q -38,-120 -15,-108" fill="none" stroke="#3D2E26" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 15,-108 Q 38,-120 60,-105" fill="none" stroke="#3D2E26" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Eyes (Warm almond shape) -->
+    <ellipse cx="-36" cy="-85" rx="15" ry="9" fill="#FFFFFF"/>
+    <ellipse cx="-36" cy="-85" rx="7" ry="7" fill="#422F26"/>
+    <circle cx="-34" cy="-87" r="2.5" fill="#FFFFFF"/>
+    <path d="M -54,-87 Q -36,-100 -18,-87" fill="none" stroke="#2D211B" stroke-width="2.5" stroke-linecap="round"/>
+
+    <ellipse cx="36" cy="-85" rx="15" ry="9" fill="#FFFFFF"/>
+    <ellipse cx="36" cy="-85" rx="7" ry="7" fill="#422F26"/>
+    <circle cx="38" cy="-87" r="2.5" fill="#FFFFFF"/>
+    <path d="M 18,-87 Q 36,-100 54,-87" fill="none" stroke="#2D211B" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Nose (Minimal aesthetic profile) -->
+    <path d="M 0,-95 Q 5,-45 8,-35 Q 0,-30 -8,-35" fill="none" stroke="#D19C7A" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Cheeks Soft Blush -->
+    <ellipse cx="-48" cy="-45" rx="20" ry="12" fill="#E88F80" opacity="0.25"/>
+    <ellipse cx="48" cy="-45" rx="20" ry="12" fill="#E88F80" opacity="0.25"/>
+
+    <!-- Lips (Natural warm rose smile) -->
+    <path d="M -26,12 Q 0,4 26,12 Q 18,32 0,33 Q -18,32 -26,12 Z" fill="#C96B64"/>
+    <path d="M -24,14 Q 0,20 24,14" fill="none" stroke="#8A3B36" stroke-width="1.5"/>
+  </g>
+</svg>

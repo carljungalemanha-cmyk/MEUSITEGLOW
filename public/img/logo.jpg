@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C9A25A"/>
+      <stop offset="25%" stop-color="#E8D3A0"/>
+      <stop offset="50%" stop-color="#B8924A"/>
+      <stop offset="75%" stop-color="#F5E2A8"/>
+      <stop offset="100%" stop-color="#9C7A32"/>
+    </linearGradient>
+    <radialGradient id="goldGlint" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FFFDF7" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#E8D3A0" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#9C7A32" stop-opacity="0.3"/>
+    </radialGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <!-- Background with 34px rounded corners relative to 500px canvas = 68px -->
+  <rect width="500" height="500" rx="90" fill="url(#bgGold)"/>
+  <rect width="500" height="500" rx="90" fill="url(#goldGlint)"/>
+  <!-- Elegant White Emblem with subtle soft inner glow -->
+  <g transform="translate(250, 250)">
+    <!-- 4-point primary luxury star -->
+    <path d="M 0,-140 Q 14,-22 140,0 Q 14,22 0,140 Q -14,22 -140,0 Q -14,-22 0,-140 Z" fill="#FFFFFF" filter="url(#glow)"/>
+    <!-- Diagonal smaller secondary rays -->
+    <path d="M 0,-65 Q 8,-12 65,0 Q 8,12 0,65 Q -8,12 -65,0 Q -8,-12 0,-65 Z" transform="rotate(45)" fill="#FFF8E7" opacity="0.9"/>
+    <!-- Center delicate crystal core -->
+    <circle cx="0" cy="0" r="14" fill="#B8924A"/>
+    <circle cx="0" cy="0" r="7" fill="#FFFFFF"/>
+  </g>
+</svg>

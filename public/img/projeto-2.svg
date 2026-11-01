@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgP2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7F3EB"/>
+      <stop offset="100%" stop-color="#EBE0CC"/>
+    </linearGradient>
+    <linearGradient id="goldM" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9C7A32"/>
+      <stop offset="50%" stop-color="#C9A25A"/>
+      <stop offset="100%" stop-color="#F0DFAE"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bgP2)"/>
+  <!-- Browser bar -->
+  <rect width="1200" height="54" fill="#FFFFFF"/>
+  <circle cx="36" cy="27" r="6" fill="#EDE2CD"/>
+  <circle cx="56" cy="27" r="6" fill="#EDE2CD"/>
+  <circle cx="76" cy="27" r="6" fill="#EDE2CD"/>
+  <rect x="180" y="14" width="840" height="26" rx="13" fill="#FBF7EF"/>
+  <text x="600" y="32" font-family="'Jost', sans-serif" font-size="12" fill="#7B756B" text-anchor="middle">drmateusprado.com.br — Harmonização Orofacial Masculina &amp; Rinomodelação</text>
+
+  <g transform="translate(100, 110)">
+    <text x="0" y="36" font-family="'Cormorant Garamond', serif" font-size="28" font-weight="600" fill="#2D2B28" letter-spacing="0.1em">DR. MATEUS PRADO</text>
+    <text x="0" y="58" font-family="'Jost', sans-serif" font-size="12" fill="#B8924A" letter-spacing="0.15em">ESTÉTICA FACIAL MASCULINA • CURITIBA</text>
+    
+    <text x="0" y="150" font-family="'Cormorant Garamond', serif" font-size="52" font-weight="500" fill="#2D2B28">Estrutura, definição e</text>
+    <text x="0" y="210" font-family="'Cormorant Garamond', serif" font-size="56" font-style="italic" fill="url(#goldM)">precisão milimétrica.</text>
+    
+    <text x="0" y="260" font-family="'Jost', sans-serif" font-size="16" fill="#7B756B">
+      Linha de mandíbula marcante, mento alinhado e rinomodelação
+    </text>
+    <text x="0" y="285" font-family="'Jost', sans-serif" font-size="16" fill="#7B756B">
+      com planejamento 3D e tecnologia médica de ponta.
+    </text>
+
+    <rect x="0" y="330" width="220" height="48" rx="24" fill="url(#goldM)"/>
+    <text x="110" y="360" font-family="'Jost', sans-serif" font-size="14" font-weight="500" fill="#2D2B28" text-anchor="middle">CONSULTAR HORÁRIO</text>
+
+    <g transform="translate(560, 10)">
+      <rect width="420" height="520" rx="40" fill="#E4D7C0" stroke="#FFFFFF" stroke-width="6"/>
+      <path d="M 100,500 C 120,380 180,290 210,210 C 240,290 300,380 320,500 Z" fill="#F1E9DB"/>
+      <ellipse cx="210" cy="200" rx="70" ry="85" fill="#E5C7B0"/>
+      <!-- Strong jawline silhouette -->
+      <path d="M 160,200 L 210,270 L 260,200 Z" fill="#D7B59C"/>
+      <rect x="50" y="390" width="210" height="52" rx="26" fill="#FFFFFF" fill-opacity="0.9" stroke="#EDE2CD"/>
+      <text x="155" y="414" font-family="'Jost', sans-serif" font-size="12" font-weight="600" fill="#2D2B28" text-anchor="middle">Mandíbula &amp; Rinomodelação</text>
+      <text x="155" y="430" font-family="'Jost', sans-serif" font-size="11" fill="#B8924A" text-anchor="middle">✦ Alta Fidelidade Anatômica</text>
+    </g>
+  </g>
+</svg>

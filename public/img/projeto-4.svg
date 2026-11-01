@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgP4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF5EC"/>
+      <stop offset="100%" stop-color="#EBE2D0"/>
+    </linearGradient>
+    <linearGradient id="goldV" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9C7A32"/>
+      <stop offset="50%" stop-color="#C9A25A"/>
+      <stop offset="100%" stop-color="#F5E2A8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bgP4)"/>
+  <rect width="1200" height="54" fill="#FFFFFF"/>
+  <circle cx="36" cy="27" r="6" fill="#EDE2CD"/>
+  <circle cx="56" cy="27" r="6" fill="#EDE2CD"/>
+  <circle cx="76" cy="27" r="6" fill="#EDE2CD"/>
+  <rect x="180" y="14" width="840" height="26" rx="13" fill="#FBF7EF"/>
+  <text x="600" y="32" font-family="'Jost', sans-serif" font-size="12" fill="#7B756B" text-anchor="middle">dravaleriafontes.com.br — Harmonização Orofacial &amp; Preenchimento Labial</text>
+
+  <g transform="translate(100, 110)">
+    <text x="0" y="36" font-family="'Cormorant Garamond', serif" font-size="28" font-weight="600" fill="#2D2B28" letter-spacing="0.1em">DRA. VALÉRIA FONTES</text>
+    <text x="0" y="58" font-family="'Jost', sans-serif" font-size="12" fill="#B8924A" letter-spacing="0.15em">HARMONIZAÇÃO OROFACIAL • SALVADOR</text>
+    
+    <text x="0" y="150" font-family="'Cormorant Garamond', serif" font-size="52" font-weight="500" fill="#2D2B28">Lábios esculpidos e</text>
+    <text x="0" y="210" font-family="'Cormorant Garamond', serif" font-size="56" font-style="italic" fill="url(#goldV)">harmonia que encanta.</text>
+    
+    <text x="0" y="260" font-family="'Jost', sans-serif" font-size="16" fill="#7B756B">
+      Escultura labial com proporção áurea, hidratação profunda
+    </text>
+    <text x="0" y="285" font-family="'Jost', sans-serif" font-size="16" fill="#7B756B">
+      e técnicas indolores com anestesia computadorizada.
+    </text>
+
+    <rect x="0" y="330" width="220" height="48" rx="24" fill="url(#goldV)"/>
+    <text x="110" y="360" font-family="'Jost', sans-serif" font-size="14" font-weight="500" fill="#2D2B28" text-anchor="middle">RECEBER ATENDIMENTO</text>
+
+    <g transform="translate(560, 10)">
+      <rect width="420" height="520" rx="999" fill="#E2D4BC" stroke="#FFFFFF" stroke-width="6"/>
+      <!-- Soft lips silhouette highlight -->
+      <path d="M 130,260 Q 210,210 290,260 Q 210,340 130,260 Z" fill="#F8ECE1"/>
+      <path d="M 160,260 Q 210,235 260,260 Q 210,305 160,260 Z" fill="#D68A82"/>
+      <rect x="50" y="390" width="220" height="52" rx="26" fill="#FFFFFF" fill-opacity="0.9" stroke="#EDE2CD"/>
+      <text x="160" y="414" font-family="'Jost', sans-serif" font-size="12" font-weight="600" fill="#2D2B28" text-anchor="middle">Escultura Labial Áurea</text>
+      <text x="160" y="430" font-family="'Jost', sans-serif" font-size="11" fill="#B8924A" text-anchor="middle">✦ Naturalidade e Contorno</text>
+    </g>
+  </g>
+</svg>
